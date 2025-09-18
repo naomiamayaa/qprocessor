@@ -1,0 +1,54 @@
+Employees (EID, Name, Age) = {
+  E1, John, 32
+  E2, Alice, 28
+  E3, Bob, 29
+  E4, Bobby, 30
+}
+
+Departments (DID, DeptName) = {
+  D1, Sales
+  D2, Engineering
+}
+
+Projects (PID, ProjectName, DID) = {
+  P1, WebApp, D1
+  P2, MobileApp, D2
+  P3, Database, D1
+}
+
+Managers (EID, Name, Age) = {
+  E1, John, 32
+  E2, Alice, 28
+  E3, Bob, 29
+  E5, Carol, 35
+}
+
+Contractors (CID, Name, Age) = {
+  C1, Dave, 40
+  C2, Eve, 33
+  C3, Frank, 28
+}
+
+AllWorkers (WID, Name, Age) = {
+  W1, John, 32
+  W2, Alice, 28
+  W3, Bob, 29
+  W4, Carol, 35
+  W5, Dave, 40
+}
+
+Customers (CID, Name, Age) = {
+  C3, Frank, 28
+}
+
+# Queries
+Query: select Age > 30 (Employees)
+Query: select Name = John (Employees)
+Query: join Employees, Departments
+Query: join Employees, Projects
+Query: join Employees, Departments on Employees.Name = Departments.DeptNames
+Query: project Name, DeptName (join Employees, Departments)
+Query: project DID (Departments)
+Query: union Managers, Contractors
+Query: intersection Managers, Employees
+Query: difference Employees, Managers
